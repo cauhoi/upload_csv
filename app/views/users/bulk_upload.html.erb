@@ -1,0 +1,8 @@
+<h1>Bulk Upload Users</h1>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'user_csv' %> <br>
+  <%= submit_tag("Submit") %>
+<% end %>
