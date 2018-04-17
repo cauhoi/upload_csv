@@ -1,33 +1,45 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
 <h1>Users List</h1>
 
-<button type="button" onclick="filter_email()">Filter .com email</button>
-
-  <table id="mytable">
+<button type="button" class="btn btn-primary" onclick="filter_email()">Filter .com email</button>
+  <a class="btn btn-primary" href="/users/bulk_upload" role="button">Bulk Upload Users</a>
+  <%= link_to "Clear Table", users_remove_all_path, method: :post , data: {confirm: "Are you sure?"}%>
+<br>
+  <table id="mytable" class="table table-striped">
     <tr>
+      <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th><a href="#" onclick="sortTable();return false;">Email</a></th>
       <th>Phone</th>
       <th>Company</th>
+      <th>Action</th>
     </tr>
     <% @users.each do |user| %>
-    <tr>
+    <tr id="row-<%= "#{user.id}" %>">
+      <td><%= user.id %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.email_address %></td>
       <td><%= user.phone_number %></td>
-      <td></td>
+      <td><%= user.company.try(:name) %></td>
+      <td><%= button_to("Delete User",user,method: :delete,class: "btn btn-light",remote: true, data: {confirm: "Are you sure?"}) %></td>
 
     </tr>
     <% end  %>
   </table>
-
+</div>
 <script>
     function filter_email(){
         var table = document.getElementById("mytable");
         var rows = document.getElementsByTagName('tr');
         for(var i=1; i<rows.length;i++){
-            col = rows[i].getElementsByTagName('td')[2];
+            col = rows[i].getElementsByTagName('td')[3];
             if(col){
                 if(col.innerHTML.toUpperCase().indexOf(".COM") >-1){
                     rows[i].style.display = "";
@@ -66,8 +78,8 @@
                 shouldSwitch = false;
                 /* Get the two elements you want to compare,
                 one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("td")[2];
-                y = rows[i + 1].getElementsByTagName("td")[2];
+                x = rows[i].getElementsByTagName("td")[3];
+                y = rows[i + 1].getElementsByTagName("td")[3];
                 // Check if the two rows should switch place:
                 if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                     // I so, mark as a switch and break the loop:
