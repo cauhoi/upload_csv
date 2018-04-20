@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 gem 'activerecord-session_store'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
