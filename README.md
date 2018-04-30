@@ -1,6 +1,6 @@
-### Contactually Lite
+### Upload CSV
 
-At its core, Contactually is an online database for your contacts. Your task
+The goal
 is to build a very basic web interface for this database that accepts file
 uploads, stores the data in a relational database, and displays the information
 back to the user.
@@ -29,8 +29,3 @@ back to the user.
   make sure your completed code is on the `master` branch before bundling up your work.
 - Your code should be clear and well-documented.
 
-When you're done, use `git bundle` to bundle up the repo and email it as an attachment
-to **hw@contactually.com**.
-
-**NOTE:**
-Your application *does not* need to handle authentication or authorization.
