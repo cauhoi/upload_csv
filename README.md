@@ -1,12 +1,9 @@
 ### Upload CSV
 
-The goal
-is to build a very basic web interface for this database that accepts file
+
+This is a Rails app that accepts file
 uploads, stores the data in a relational database, and displays the information
 back to the user.
-
-
-##### Requirements
 
 - Built in Ruby on Rails.
 - Allow a user to upload a comma-delimited file of contacts via a web form. The
@@ -15,17 +12,13 @@ back to the user.
 - Parse the given file, normalize the data, and store the information in a
   relational database.
 - Display the list of contacts and their data.
-- Accompanying specs written in [Rspec](https://github.com/rspec/rspec-core)
-- Allow deleting specific contacts via Ajax (ideally using React).
+- Allow deleting specific contacts via Ajax.
 - Allow the list of contacts to be filtered via Javascript to show:
   - Only contacts with `.com` email addresses
   - Order the contacts alphabetically by email address
-- Deploy your app to a free instance of [Heroku](https://www.heroku.com/pricing) and email us the link
 
-##### Submission Instructions
-
-- Break up your work into separate/logical commits.
-- You can use as many branches as you need in order to organize your work, but you must
-  make sure your completed code is on the `master` branch before bundling up your work.
-- Your code should be clear and well-documented.
-
+## Running Test
+```
+rails test test/controllers/users_controller_test.rb
+rails test test/models/user_test.rb 
+```
